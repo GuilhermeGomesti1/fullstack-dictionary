@@ -8,8 +8,15 @@ Nesse desafio você deverá desenvolver um aplicativo para listar palavras em in
 
 [SPOILER] As instruções de entrega e apresentação do challenge estão no final deste Readme (=
 
+### Estrutura e informações iniciais do projeto
+
+Optei por iniciar o projeto usando o Next.js 14.2.3 e TailwindCSS, pois estão nos requisitos da vaga. A estrutura do projeto é a seguinte:
+
+- client/: Pasta para o front-end.
+- server/: Pasta para o código do back-end.
+
 ### Antes de começar
- 
+
 - Prepare o projeto para ser disponibilizado no Github, copiando o conteúdo deste repositório para o seu (ou utilize o fork do projeto e aponte para o Github). Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
 - O projeto deve utilizar a Linguagem específica na sua Vaga (caso esteja se candidatando). Por exempo: Python, R, Scala e entre outras;
 - Considere como deadline 5 dias a partir do início do desafio. Caso tenha sido convidado a realizar o teste e não seja possível concluir dentro deste período, avise a pessoa que o convidou para receber instruções sobre o que fazer.
@@ -20,6 +27,7 @@ Nesse desafio você deverá desenvolver um aplicativo para listar palavras em in
 - Utilize as seguintes tecnologias:
 
 #### Tecnologias (Front-End):
+
 - Com ou sem framework (React, Angular, Vue.js, Javascript Vanilla, ou outro da sua escolha)
 - Estilização (Material UI, Semantic UI, Styled Components, etc). Ou escrever o seu proprio sob medida 👌
 - CSS Flexbox + CSS Grid
@@ -30,12 +38,14 @@ Nesse desafio você deverá desenvolver um aplicativo para listar palavras em in
 Atente-se, ao desenvolver a aplicação front-end, para conceitos de usabilidade e adeque a interface com elementos visuais para os usuários do seu sistema.
 
 #### Tecnologias (Back-End):
+
 - API (Node.js, PHP, Ruby, ou outra da sua escolha) com ou sem uso de frameworks
 - Banco de dados (Postgres, MySQL, MongoDB, etc).
 
 Como sugestões, pode criar um banco de dados grátis **MongoDB** usando Atlas: https://www.mongodb.com/cloud/atlas. Para conhecer outras plataformas de banco de dados, acesse https://coodesh.com/blog/candidates/heroku-acabou-e-agora-veja-alternativas/
 
 #### Organização:
+
 - Separar o repositório do back do front
 - Aplicação de padrões Clean Code
 - Validação de chamadas assíncronas para evitar travamentos
@@ -46,107 +56,100 @@ Conforme indicado na documentação da API, a estrutura de dados presente retorn
 
 ```json
 [
-    {
-        "word": "hello",
-        "phonetics": [
-            {
-                "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
-                "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75797336",
-                "license": {
-                    "name": "BY-SA 4.0",
-                    "url": "https://creativecommons.org/licenses/by-sa/4.0"
-                }
-            },
-            {
-                "text": "/həˈləʊ/",
-                "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
-                "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=9021983",
-                "license": {
-                    "name": "BY 3.0 US",
-                    "url": "https://creativecommons.org/licenses/by/3.0/us"
-                }
-            },
-            {
-                "text": "/həˈloʊ/",
-                "audio": ""
-            }
-        ],
-        "meanings": [
-            {
-                "partOfSpeech": "noun",
-                "definitions": [
-                    {
-                        "definition": "\"Hello!\" or an equivalent greeting.",
-                        "synonyms": [],
-                        "antonyms": []
-                    }
-                ],
-                "synonyms": [
-                    "greeting"
-                ],
-                "antonyms": []
-            },
-            {
-                "partOfSpeech": "verb",
-                "definitions": [
-                    {
-                        "definition": "To greet with \"hello\".",
-                        "synonyms": [],
-                        "antonyms": []
-                    }
-                ],
-                "synonyms": [],
-                "antonyms": []
-            },
-            {
-                "partOfSpeech": "interjection",
-                "definitions": [
-                    {
-                        "definition": "A greeting (salutation) said when meeting someone or acknowledging someone’s arrival or presence.",
-                        "synonyms": [],
-                        "antonyms": [],
-                        "example": "Hello, everyone."
-                    },
-                    {
-                        "definition": "A greeting used when answering the telephone.",
-                        "synonyms": [],
-                        "antonyms": [],
-                        "example": "Hello? How may I help you?"
-                    },
-                    {
-                        "definition": "A call for response if it is not clear if anyone is present or listening, or if a telephone conversation may have been disconnected.",
-                        "synonyms": [],
-                        "antonyms": [],
-                        "example": "Hello? Is anyone there?"
-                    },
-                    {
-                        "definition": "Used sarcastically to imply that the person addressed or referred to has done something the speaker or writer considers to be foolish.",
-                        "synonyms": [],
-                        "antonyms": [],
-                        "example": "You just tried to start your car with your cell phone. Hello?"
-                    },
-                    {
-                        "definition": "An expression of puzzlement or discovery.",
-                        "synonyms": [],
-                        "antonyms": [],
-                        "example": "Hello! What’s going on here?"
-                    }
-                ],
-                "synonyms": [],
-                "antonyms": [
-                    "bye",
-                    "goodbye"
-                ]
-            }
-        ],
+  {
+    "word": "hello",
+    "phonetics": [
+      {
+        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
+        "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75797336",
         "license": {
-            "name": "CC BY-SA 3.0",
-            "url": "https://creativecommons.org/licenses/by-sa/3.0"
-        },
-        "sourceUrls": [
-            "https://en.wiktionary.org/wiki/hello"
-        ]
-    }
+          "name": "BY-SA 4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0"
+        }
+      },
+      {
+        "text": "/həˈləʊ/",
+        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+        "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=9021983",
+        "license": {
+          "name": "BY 3.0 US",
+          "url": "https://creativecommons.org/licenses/by/3.0/us"
+        }
+      },
+      {
+        "text": "/həˈloʊ/",
+        "audio": ""
+      }
+    ],
+    "meanings": [
+      {
+        "partOfSpeech": "noun",
+        "definitions": [
+          {
+            "definition": "\"Hello!\" or an equivalent greeting.",
+            "synonyms": [],
+            "antonyms": []
+          }
+        ],
+        "synonyms": ["greeting"],
+        "antonyms": []
+      },
+      {
+        "partOfSpeech": "verb",
+        "definitions": [
+          {
+            "definition": "To greet with \"hello\".",
+            "synonyms": [],
+            "antonyms": []
+          }
+        ],
+        "synonyms": [],
+        "antonyms": []
+      },
+      {
+        "partOfSpeech": "interjection",
+        "definitions": [
+          {
+            "definition": "A greeting (salutation) said when meeting someone or acknowledging someone’s arrival or presence.",
+            "synonyms": [],
+            "antonyms": [],
+            "example": "Hello, everyone."
+          },
+          {
+            "definition": "A greeting used when answering the telephone.",
+            "synonyms": [],
+            "antonyms": [],
+            "example": "Hello? How may I help you?"
+          },
+          {
+            "definition": "A call for response if it is not clear if anyone is present or listening, or if a telephone conversation may have been disconnected.",
+            "synonyms": [],
+            "antonyms": [],
+            "example": "Hello? Is anyone there?"
+          },
+          {
+            "definition": "Used sarcastically to imply that the person addressed or referred to has done something the speaker or writer considers to be foolish.",
+            "synonyms": [],
+            "antonyms": [],
+            "example": "You just tried to start your car with your cell phone. Hello?"
+          },
+          {
+            "definition": "An expression of puzzlement or discovery.",
+            "synonyms": [],
+            "antonyms": [],
+            "example": "Hello! What’s going on here?"
+          }
+        ],
+        "synonyms": [],
+        "antonyms": ["bye", "goodbye"]
+      }
+    ],
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "sourceUrls": ["https://en.wiktionary.org/wiki/hello"]
+  }
 ]
 ```
 
@@ -174,46 +177,49 @@ Retornar a mensagem "Fullstack Challenge 🏅 - Dictionary"
 
 ```json
 {
-    "message": "Fullstack Challenge 🏅 - Dictionary"
+  "message": "Fullstack Challenge 🏅 - Dictionary"
 }
 ```
+
 </details>
 <details open>
 <summary>[POST] /auth/signup</summary>
 
 ```json
 {
-    "name": "User 1",
-    "email": "example@email.com",
-    "password": "test"
+  "name": "User 1",
+  "email": "example@email.com",
+  "password": "test"
 }
 ```
 
 ```json
 {
-    "id": "f3a10cec013ab2c1380acef",
-    "name": "User 1",
-    "token": "Bearer JWT.Token"
+  "id": "f3a10cec013ab2c1380acef",
+  "name": "User 1",
+  "token": "Bearer JWT.Token"
 }
 ```
+
 </details>
 <details open>
 <summary>[POST] /auth/signin</summary>
 
 ```json
 {
-    "email": "example@email.com",
-    "password": "test"
+  "email": "example@email.com",
+  "password": "test"
 }
 ```
 
 ```json
 {
-    "id": "f3a10cec013ab2c1380acef",
-    "name": "User 1",
-    "token": "Bearer JWT.Token"
+  "id": "f3a10cec013ab2c1380acef",
+  "name": "User 1",
+  "token": "Bearer JWT.Token"
 }
 ```
+
 </details>
 <details open>
 <summary>[GET] /entries/en</summary>
@@ -225,19 +231,15 @@ Retornar a lista de palavras do dicionário, com paginação e suporte a busca. 
 
 ```json
 {
-    "results": [
-        "fire",
-        "firefly",
-        "fireplace",
-        "fireman"
-    ],
-    "totalDocs": 20,
-    "page": 1,
-    "totalPages": 5, 
-    "hasNext": true,
-    "hasPrev": false
+  "results": ["fire", "firefly", "fireplace", "fireman"],
+  "totalDocs": 20,
+  "page": 1,
+  "totalPages": 5,
+  "hasNext": true,
+  "hasPrev": false
 }
 ```
+
 </details>
 <details open>
 <summary>[GET] /entries/en/:word</summary>
@@ -271,31 +273,32 @@ Retornar a lista de palavras visitadas
 
 ```json
 {
-    "results": [
-        {
-            "word": "fire",
-            "added": "2022-05-05T19:28:13.531Z"
-        },
-        {
-            "word": "firefly",
-            "added": "2022-05-05T19:28:44.021Z"
-        },
-        {
-            "word": "fireplace",
-            "added": "2022-05-05T19:29:28.631Z"
-        },
-        {
-            "word": "fireman",
-            "added": "2022-05-05T19:30:03.711Z"
-        }
-    ],
-    "totalDocs": 20,
-    "page": 2,
-    "totalPages": 5,
-    "hasNext": true,
-    "hasPrev": true
+  "results": [
+    {
+      "word": "fire",
+      "added": "2022-05-05T19:28:13.531Z"
+    },
+    {
+      "word": "firefly",
+      "added": "2022-05-05T19:28:44.021Z"
+    },
+    {
+      "word": "fireplace",
+      "added": "2022-05-05T19:29:28.631Z"
+    },
+    {
+      "word": "fireman",
+      "added": "2022-05-05T19:30:03.711Z"
+    }
+  ],
+  "totalDocs": 20,
+  "page": 2,
+  "totalPages": 5,
+  "hasNext": true,
+  "hasPrev": true
 }
 ```
+
 </details> 
 <details open>
 <summary>[GET] /user/me/favorites</summary>
@@ -305,42 +308,43 @@ Retornar a lista de palavras marcadas como favoritas
 
 ```json
 {
-    "results": [
-        {
-            "word": "fire",
-            "added": "2022-05-05T19:30:23.928Z"
-        },
-        {
-            "word": "firefly",
-            "added": "2022-05-05T19:30:24.088Z"
-        },
-        {
-            "word": "fireplace",
-            "added": "2022-05-05T19:30:28.963Z"
-        },
-        {
-            "word": "fireman",
-            "added": "2022-05-05T19:30:33.121Z"
-        }
-    ],
-    "totalDocs": 20,
-    "page": 2,
-    "totalPages": 5,
-    "hasNext": true,
-    "hasPrev": true
+  "results": [
+    {
+      "word": "fire",
+      "added": "2022-05-05T19:30:23.928Z"
+    },
+    {
+      "word": "firefly",
+      "added": "2022-05-05T19:30:24.088Z"
+    },
+    {
+      "word": "fireplace",
+      "added": "2022-05-05T19:30:28.963Z"
+    },
+    {
+      "word": "fireman",
+      "added": "2022-05-05T19:30:33.121Z"
+    }
+  ],
+  "totalDocs": 20,
+  "page": 2,
+  "totalPages": 5,
+  "hasNext": true,
+  "hasPrev": true
 }
 ```
 
 </details>
 
 Além disso, os endpoints devem utilizar os seguintes códigos de status:
+
 - 200: sucesso com body ou sem body
 - 204: sucesso sem body
 - 400: mensagem de erro em formato humanizado, ou seja, sem informações internas e códigos de erro:
 
 ```json
 {
-    "message": "Error message"
+  "message": "Error message"
 }
 ```
 
@@ -358,23 +362,19 @@ Além disso, os endpoints devem utilizar os seguintes códigos de status:
 
 ```json
 {
-    "results": [
-        "fire",
-        "firefly",
-        "fireplace",
-        "fireman"
-    ],
-    "totalDocs": 20,
-    "previous": "eyIkb2lkIjoiNTgwZmQxNmjJkOGI5In0",
-    "next": "eyIkb2lkIjoiNTgwZmQxNm1NjJkOGI4In0",
-    "hasNext": true,
-    "hasPrev": true,
+  "results": ["fire", "firefly", "fireplace", "fireman"],
+  "totalDocs": 20,
+  "previous": "eyIkb2lkIjoiNTgwZmQxNmjJkOGI5In0",
+  "next": "eyIkb2lkIjoiNTgwZmQxNm1NjJkOGI4In0",
+  "hasNext": true,
+  "hasPrev": true
 }
 ```
 
 **Diferencial 6** - Salvar em cache o resultado das requisições ao Free Dictionary API, para agilizar a resposta em caso de buscas com parâmetros repetidos. Sugestões são usar o Redis e/ou MongoDB;
 
 O cache pode ser feito a guardar todo o corpo das respostas ou para guardar o resultado das queries do banco. Para identificar a presença de cache, será necessário adicionar os seguintes headers nas respostas:
+
 - x-cache: valores HIT (retornou dados em cache) ou MISS (precisou buscar no banco)
 - x-response-time: duração da requisição em milissegundos
 
@@ -412,10 +412,10 @@ Nessa etapa você deverá desenvolver uma aplicação web para consumir a API qu
 - Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
 - Como instalar e usar o projeto (instruções)
 - Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+- Se está usando github pessoal, referencie que é um challenge by coodesh:
 
->  This is a challenge by [Coodesh](https://coodesh.com/)
+> This is a challenge by [Coodesh](https://coodesh.com/)
 
 ## Suporte
 
-Use a [nossa comunidade](https://discord.gg/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma. 
+Use a [nossa comunidade](https://discord.gg/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma.
