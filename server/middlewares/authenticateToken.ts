@@ -16,16 +16,14 @@ const authenticateToken = (
   const token = authHeader && authHeader.split(" ")[1];
 
   if (token == null) {
-    console.log("Token não fornecido");
     return res.sendStatus(401);
   }
 
   jwt.verify(token, process.env.JWT_SECRET as string, (err, user) => {
     if (err) {
-      console.log("Erro na verificação do token:", err.message);
       return res.sendStatus(403);
     }
-    console.log("Token verificado com sucesso. Usuário:", user);
+
     req.user = user as UserPayload;
     next();
   });

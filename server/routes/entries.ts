@@ -19,9 +19,15 @@ router.get("/en", async (req: RequestCustom, res: Response) => {
       search,
       startLetter,
     });
-
+    console.log({
+      results: words.map((word) => word.word),
+      totalDocs,
+      page: pageNumber,
+      totalPages,
+      hasNext,
+      hasPrev,
+    });
     res.json({
-      message: "Fullstack Challenge 🏅 - Dictionary",
       results: words.map((word) => word.word),
       totalDocs,
       page: pageNumber,

@@ -26,8 +26,17 @@ router.post("/register", async (req: RequestCustom, res: Response) => {
 router.post("/login", async (req: RequestCustom, res: Response) => {
   try {
     const { email, password } = req.body;
-    const { token } = await loginUser(email, password);
-    res.json({ token });
+    const { user, token } = await loginUser(email, password);
+    console.log("User:", {
+      id: user._id,
+      email: user.email,
+      token,
+    });
+    res.json({
+      id: user._id,
+      email: user.email,
+      token,
+    });
   } catch (error) {
     res.status(400).json({ message: (error as Error).message });
   }

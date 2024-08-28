@@ -15,7 +15,6 @@ const registerUser = async (email: string, password: string) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  console.log("Senha criptografada para o usuário com e-mail:", email);
   const newUser = new User({ email, password: hashedPassword });
   await newUser.save();
 
@@ -39,7 +38,6 @@ const loginUser = async (email: string, password: string) => {
     process.env.JWT_SECRET as string,
     { expiresIn: "1h" }
   );
-  console.log("Token gerado para o usuário com e-mail:", email);
 
   return { user, token };
 };

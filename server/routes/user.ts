@@ -10,18 +10,14 @@ router.get(
   async (req: RequestCustom, res: Response) => {
     try {
       const userId = req.user?.id;
-      console.log("ID do usuário na rota /me:", userId);
 
       if (!userId) {
-        console.log("ID do usuário não encontrado");
         return res.status(401).send("Unauthorized");
       }
 
       const user = await userService.findUserById(userId);
-      console.log("Usuário encontrado na rota /me:", user);
 
       if (!user) {
-        console.log("Usuário não encontrado");
         return res.status(404).send("User not found");
       }
 
@@ -31,7 +27,6 @@ router.get(
         history: user.history,
       });
     } catch (error) {
-      console.log("Erro ao obter perfil do usuário:", (error as Error).message);
       res.status(500).send("Server error");
     }
   }

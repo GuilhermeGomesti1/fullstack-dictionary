@@ -25,7 +25,7 @@ O backend do projeto é construído com Express e MongoDB. Abaixo estão os deta
 
   - **`middlewares/`**
 
-    - `authenticateToken.js`: Middleware que autentica o token JWT presente no cabeçalho da requisição.
+    - `authenticateToken.ts`: Middleware que autentica o token JWT presente no cabeçalho da requisição.
 
   - **`models/`**: Contém os modelos Mongoose para o MongoDB.
 
@@ -40,6 +40,7 @@ O backend do projeto é construído com Express e MongoDB. Abaixo estão os deta
 
   - **`services/`**: Manipulação de dados e regras de aplicação relacionadas ao banco de dados.
 
+    - `fileService.ts:`: Contém a lógica para baixar um arquivo de palavras, ler seu conteúdo e salvar as palavras no MongoDB e também verifica se as palavras já foram salvas no banco de dados antes de realizar as operações.
     - `authService.ts`: Gerencia a autenticação de usuários, incluindo registro e login, utilizando bcrypt para hash de senhas e jsonwebtoken para geração de tokens JWT.
     - `userService.ts`: Fornece funções para buscar usuários pelo ID, lidando com possíveis erros e garantindo que o usuário exista antes de retornar os dados.
     - `wordService.ts`: Realiza operações relacionadas às palavras, buscando palavras com base nos filtros passados, obtendo detalhes de uma palavra específica e gerencia a lógica de paginação.
@@ -47,7 +48,10 @@ O backend do projeto é construído com Express e MongoDB. Abaixo estão os deta
     - **`Types/`**: Definições personalizadas para tipos de requisição, incluindo informações do usuário e parâmetros de consulta.
     - `express.d.ts`: Aqui, criei a interface CustomRequest como uma extensão da interface Request do Express para resolver um erro ao usar o Request global (erro: incompatibilidade de tipos entre Request e authRequest). Após buscar em várias documentações, descobri que essa abordagem, mencionada em um blog, vi que é uma solução boa para evitar problemas associados à alteração direta de variáveis globais. fonte: https://www.reddit.com/r/node/comments/nin8fs/help_node_express_typescript_how_should_i_type_a/
 
-  - **`server.ts`**: Arquivo principal que configura o servidor Express e conecta ao MongoDB.
+    - **`scripts/`**:
+    - `initialize-db.ts`: Script para inicializar o banco de dados. Baixa o arquivo, le e converte as palavras e salva no banco de dados MongoDB, se ainda não estiverem presentes. executado com: - `npm run initialize-db`.
+
+    - **`server.ts`**: Arquivo principal que configura o servidor Express e conecta ao MongoDB.
 
 ### Antes de começar
 
