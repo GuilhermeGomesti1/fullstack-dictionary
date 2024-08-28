@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES6",
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./",
@@ -10,6 +10,13 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["./node_modules/@types", "./types"]
   },
-  "include": ["**/*.ts", "types/express.d.ts"],
+  "include": [
+    "*.ts",
+    "routes/**/*.ts",
+    "services/**/*.ts",
+    "middlewares/**/*.ts",
+    "models/**/*.ts",
+    "types/express.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

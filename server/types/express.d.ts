@@ -1,9 +1,19 @@
-import { JwtPayload } from "jsonwebtoken";
+import { Request } from "express";
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: string | JwtPayload;
-    }
-  }
+export interface RequestCustom extends Request {
+  user?: {
+    id: string;
+    email: string;
+  };
+  query: {
+    page?: string;
+    limit?: string;
+    search?: string;
+    startLetter?: string;
+  };
+  params: {
+    word?: string;
+  };
 }
+
+export {};

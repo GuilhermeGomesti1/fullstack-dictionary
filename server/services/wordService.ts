@@ -1,17 +1,57 @@
-import Word, { IWord } from "../models/word";
-import mongoose from "mongoose";
+import Word from "../models/word";
 
-const MONGO_URI = process.env.MONGO_URI as string;
-
-export async function saveWordsToMongo(words: string[]): Promise<void> {
-  try {
-    await mongoose.connect(MONGO_URI);
-    const wordDocuments = words.map((word) => ({ word }));
-    await Word.insertMany(wordDocuments);
-    console.log("Words saved to MongoDB successfully!");
-  } catch (error) {
-    console.error("Error saving words to MongoDB:", error);
-  } finally {
-    await mongoose.disconnect();
-  }
+interface FindWordsOptions {
+  page?: number;
+  limit?: number;
+  search?: string;
+  startLetter?: string;
 }
+
+interface FindWordsResult {
+  words: Array<{ word: string }>;
+  totalDocs: number;
+  page: number;
+  totalPages: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+}
+
+const findWords = async ({
+  page = 1,
+  limit = 20,
+  search = "",
+  startLetter = "",
+}: FindWordsOptions): Promise<FindWordsResult> => {
+  const filter: any = {
+    word: {
+      $regex: `^${search}\\b`,
+      $options: "i",
+    },
+  };
+
+  if (startLetter) {
+    filter.word.$regex = `^${startLetter}`;
+  }
+
+  const words = await Word.find(filter)
+    .limit(parseInt(limit as any))
+    .skip((parseInt(page as any) - 1) * parseInt(limit as any))
+    .exec();
+
+  const totalDocs = await Word.countDocuments(filter);
+
+  return {
+    words,
+    totalDocs,
+    page: parseInt(page as any),
+    totalPages: Math.ceil(totalDocs / limit),
+    hasNext: parseInt(page as any) * limit < totalDocs,
+    hasPrev: parseInt(page as any) > 1,
+  };
+};
+
+const findWordByWord = async (word: string) => {
+  return await Word.findOne({ word }).exec();
+};
+
+export { findWords, findWordByWord };

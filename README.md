@@ -8,12 +8,46 @@ Nesse desafio você deverá desenvolver um aplicativo para listar palavras em in
 
 [SPOILER] As instruções de entrega e apresentação do challenge estão no final deste Readme (=
 
-### Estrutura e informações iniciais do projeto
+## Estrutura e informações iniciais do projeto
 
 Optei por iniciar o projeto usando o Next.js 14.2.3 e TailwindCSS, pois estão nos requisitos da vaga. A estrutura do projeto é a seguinte:
 
 - client/: Pasta para o front-end.
 - server/: Pasta para o código do back-end.
+
+## Backend
+
+O backend do projeto é construído com Express e MongoDB. Abaixo estão os detalhes da estrutura do diretório, configuração e como iniciar o servidor.
+
+### Estrutura do Diretório
+
+- **`server/`**: Pasta contendo o código do backend.
+
+  - **`middlewares/`**
+
+    - `authenticateToken.js`: Middleware que autentica o token JWT presente no cabeçalho da requisição.
+
+  - **`models/`**: Contém os modelos Mongoose para o MongoDB.
+
+    - `user.ts`: Define o esquema do modelo User no MongoDB usando Mongoose, incluindo campos para email, password, favorites e history, e exporta o modelo User para interações com o banco de dados.
+    - `word.ts`: Define o esquema do modelo Word no MongoDB usando Mongoose, com um campo word, e exporta o modelo Word para interações com a coleção dicWords no banco de dados.
+
+  - **`routes/`**: Contém as rotas do Express.
+
+    - `auth.ts`: Define as rotas para registro e login de usuários usando o middleware authenticateUser.
+    - `entries.ts`: Define rotas para buscar palavras no dicionário, visualizar detalhes de uma palavra específica, adicionar ou remover palavras dos favorites do usuário e registrar palavras no history, utilizando autenticação JWT para proteger essas rotas.
+    - `user.ts`: Define rotas para acessar e manipular os dados do perfil do usuário, incluindo seus dados gerais, histórico e favoritos, e utiliza JWT para garantir que apenas usuários autenticados possam acessar essas informações.
+
+  - **`services/`**: Manipulação de dados e regras de aplicação relacionadas ao banco de dados.
+
+    - `authService.ts`: Gerencia a autenticação de usuários, incluindo registro e login, utilizando bcrypt para hash de senhas e jsonwebtoken para geração de tokens JWT.
+    - `userService.ts`: Fornece funções para buscar usuários pelo ID, lidando com possíveis erros e garantindo que o usuário exista antes de retornar os dados.
+    - `wordService.ts`: Realiza operações relacionadas às palavras, buscando palavras com base nos filtros passados, obtendo detalhes de uma palavra específica e gerencia a lógica de paginação.
+
+    - **`Types/`**: Definições personalizadas para tipos de requisição, incluindo informações do usuário e parâmetros de consulta.
+    - `express.d.ts`: Aqui, criei a interface CustomRequest como uma extensão da interface Request do Express para resolver um erro ao usar o Request global (erro: incompatibilidade de tipos entre Request e authRequest). Após buscar em várias documentações, descobri que essa abordagem, mencionada em um blog, vi que é uma solução boa para evitar problemas associados à alteração direta de variáveis globais. fonte: https://www.reddit.com/r/node/comments/nin8fs/help_node_express_typescript_how_should_i_type_a/
+
+  - **`server.ts`**: Arquivo principal que configura o servidor Express e conecta ao MongoDB.
 
 ### Antes de começar
 
