@@ -1,4 +1,5 @@
 import React from "react";
+import SearchIcon from "../Icons/SearchIcon";
 
 interface SearchBarProps {
   searchTerm: string;
@@ -30,11 +31,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
             }
           }}
         />
+
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded sm:w-24"
+          className="bg-[#FF6B00] p-2 rounded flex justify-center text-white items-center"
           onClick={onSearch}
         >
-          Search
+          <SearchIcon />
         </button>
 
         {showBackButton && (
