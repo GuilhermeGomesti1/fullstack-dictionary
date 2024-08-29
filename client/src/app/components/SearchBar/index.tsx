@@ -33,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
 
         <button
-          className="bg-[#FF6B00] p-2 rounded flex justify-center text-white items-center"
+          className="bg-[#FF6B00]  p-2 rounded flex justify-center text-white items-center transition-all duration-250 ease-in-out hover:brightness-110 hover:scale-103"
           onClick={onSearch}
         >
           <SearchIcon />

@@ -17,9 +17,9 @@ const AlphabetMenu: React.FC<AlphabetMenuProps> = ({
     <select
       value={startLetter}
       onChange={(e) => onFilterByLetter(e.target.value)}
-      className="p-2 border border-gray-300 rounded"
+      className="p-1 border border-gray-300 rounded w-full"
     >
-      <option value="">Select a letter</option>
+      <option value="">A-Z</option>
       {alphabet.map((letter) => (
         <option key={letter} value={letter}>
           {letter}
@@ -27,12 +27,14 @@ const AlphabetMenu: React.FC<AlphabetMenuProps> = ({
       ))}
     </select>
   ) : (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-[7px]">
       {alphabet.map((letter) => (
         <button
           key={letter}
           className={`px-2 py-1 rounded w-[32px] ${
-            startLetter === letter ? "bg-[#FF6B00]  text-white" : "bg-gray-300"
+            startLetter === letter
+              ? "bg-[#FF6B00]  text-white transition-all duration-250 ease-in-out hover:brightness-110 hover:scale-103"
+              : "bg-gray-300 transition-all duration-250 ease-in-out hover:brightness-110 hover:scale-103"
           }`}
           onClick={() => onFilterByLetter(letter)}
         >

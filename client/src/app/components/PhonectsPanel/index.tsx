@@ -6,7 +6,7 @@ import { PhoneticsData } from "../../../../types";
 interface PhoneticsPanelProps {
   phoneticsData: PhoneticsData | null;
   audioRef: React.RefObject<HTMLAudioElement>;
-  isLoading: boolean; // Adicione a prop isLoading para gerenciar o estado de carregamento
+  isLoading: boolean;
 }
 
 const PhoneticsPanel: React.FC<PhoneticsPanelProps> = ({
@@ -16,17 +16,16 @@ const PhoneticsPanel: React.FC<PhoneticsPanelProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-lg hidden md:flex flex-col h-[calc(70vh-3rem)] w-full md:w-1/4 mt-16">
+      <div className="bg-black p-4 rounded-lg shadow-lg hidden md:flex flex-col h-[calc(70vh-3rem)] w-full md:w-1/4 mt-16">
         <div className="flex items-center justify-center h-full">
-          <Image src={carregandogif} alt="Loading" width={100} height={100} />{" "}
-          {/* Ajuste o tamanho conforme necessário */}
+          <Image src={carregandogif} alt="Loading" width={100} height={100} />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#111111] text-white p-4 rounded-lg shadow-lg hidden md:flex flex-col h-[calc(70vh-3rem)] w-full md:w-1/4 mt-16">
+    <div className="bg-[#111111] text-white p-4 rounded-lg shadow-lg hidden md:flex flex-col h-[calc(80vh-3rem)] w-full md:w-1/4 mt-16 mr-2 ">
       <div className="bg-[#FF6B00] text-white p-4 rounded-lg flex flex-col justify-center items-center mb-4 h-[60%]">
         <h2 className="text-2xl font-bold mb-4 text-center">
           {phoneticsData ? phoneticsData.word : "Selected Word"}
@@ -47,7 +46,7 @@ const PhoneticsPanel: React.FC<PhoneticsPanelProps> = ({
         )}
       </div>
 
-      <div className="bg-gray-100 p-1 rounded-lg flex-shrink-0 h-[10%]">
+      <div className=" p-1 rounded-lg flex-shrink-0 h-[10%]">
         {phoneticsData && phoneticsData.phonetics.length > 0 ? (
           phoneticsData.phonetics.find((phonetic) => phonetic.audio) ? (
             <div className="mb-4">
@@ -66,7 +65,7 @@ const PhoneticsPanel: React.FC<PhoneticsPanelProps> = ({
             <p className="text-center">No audio available</p>
           )
         ) : (
-          <p className="text-center text-black">No phonetic data available</p>
+          <p className="text-center">No phonetic data available</p>
         )}
       </div>
 
