@@ -58,7 +58,7 @@ export default function LoginForm() {
             <label htmlFor="email" className="block text-sm font-medium">
               E-mail
             </label>
-            <div className="mt-1">
+            <div className="mt-1 text-black">
               <input
                 id="email"
                 name="email"
@@ -67,7 +67,7 @@ export default function LoginForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
-                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-[#FF6B00] focus:outline-none focus:ring-1 focus:ring-[#FF6B00] sm:text-sm"
+                className=" block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-[#FF6B00] focus:outline-none focus:ring-1 focus:ring-[#FF6B00] sm:text-sm"
               />
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
-                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-[#FF6B00] focus:outline-none focus:ring-1 focus:ring-[#FF6B00] sm:text-sm"
+                className="text-black block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-[#FF6B00] focus:outline-none focus:ring-1 focus:ring-[#FF6B00] sm:text-sm"
               />
             </div>
           </div>
