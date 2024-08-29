@@ -2,8 +2,13 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5000";
 
-export const registerUser = async (email: string, password: string) => {
+export const registerUser = async (
+  name: string,
+  email: string,
+  password: string
+) => {
   const response = await axios.post(`${API_URL}/auth/register`, {
+    name,
     email,
     password,
   });
@@ -17,7 +22,6 @@ export const loginUser = async (email: string, password: string) => {
   });
   return response.data;
 };
-
 export const getUserFavorites = async (token: string) => {
   const response = await axios.get(`${API_URL}/user/me/favorites`, {
     headers: { Authorization: `Bearer ${token}` },

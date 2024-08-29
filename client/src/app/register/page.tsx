@@ -10,6 +10,7 @@ import {
 } from "../services/authService";
 
 export default function Register() {
+  const [name, setName] = useState<string>(""); // Adicionando o estado do name
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
@@ -18,10 +19,9 @@ export default function Register() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      await registerUser(email, password);
+      await registerUser(name, email, password);
       const { token } = await loginUser(email, password);
       localStorage.setItem("token", token);
-
       const [favorites, history] = await Promise.all([
         getUserFavorites(token),
         getUserHistory(token),
@@ -45,6 +45,25 @@ export default function Register() {
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           {error && <p className="text-red-500">{error}</p>}
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-black"
+            >
+              Nome
+            </label>
+            <div className="mt-1">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-[#0A5584] focus:outline-none focus:ring-1 focus:ring-[#0A5584] sm:text-sm"
+              />
+            </div>
+          </div>
           <div>
             <label
               htmlFor="email"
