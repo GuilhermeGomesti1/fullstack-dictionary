@@ -21,4 +21,4 @@ RUN npm run build
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "npm run initialize-db && npm start"]
+CMD ["npm run initialize-db && npm start"]
