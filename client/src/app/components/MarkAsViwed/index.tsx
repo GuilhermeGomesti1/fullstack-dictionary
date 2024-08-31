@@ -5,7 +5,7 @@ interface MarkAsViewedProps {
   word: string;
   onMarkAsViewed: (word: string) => void;
 }
-
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const MarkAsViewed: React.FC<MarkAsViewedProps> = ({
   word,
   onMarkAsViewed,
@@ -13,7 +13,7 @@ const MarkAsViewed: React.FC<MarkAsViewedProps> = ({
   const handleMarkAsViewed = useCallback(async () => {
     try {
       await axios.post(
-        `http://localhost:5000/entries/en/${word}/viewed`,
+        `${apiBaseUrl}/entries/en/${word}/viewed`,
         {},
         {
           headers: {

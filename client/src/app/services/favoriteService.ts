@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export const addFavorite = async (word: string, token: string) => {
   await axios.post(
-    `${API_URL}/entries/en/${word}/favorite`,
+    `${apiBaseUrl}/entries/en/${word}/favorite`,
     {},
     {
       headers: {
@@ -15,7 +15,7 @@ export const addFavorite = async (word: string, token: string) => {
 };
 
 export const removeFavorite = async (word: string, token: string) => {
-  await axios.delete(`${API_URL}/entries/en/${word}/unfavorite`, {
+  await axios.delete(`${apiBaseUrl}/entries/en/${word}/unfavorite`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

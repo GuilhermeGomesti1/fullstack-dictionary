@@ -1,7 +1,7 @@
 import axios from "axios";
 import { PhoneticsData, WordsData } from "../../../types";
 
-const apiBaseUrl = "http://localhost:5000";
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export const fetchWords = async (
   page: number,
