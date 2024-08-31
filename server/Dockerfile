@@ -1,3 +1,4 @@
+@ -0,0 +1,19 @@
 FROM node:18-alpine
 
 WORKDIR /app
@@ -12,6 +13,8 @@ COPY .env .env
 
 RUN npm run build
 
+CMD ["npm", "run", "initialize-db"]
+
 EXPOSE 5000
 
-CMD ["sh", "-c", "npm run initialize-db && npm start"]
+CMD ["npm", "start"]
