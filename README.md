@@ -14,6 +14,13 @@ Optei por iniciar o projeto usando o Next.js 14.2.3 e TailwindCSS, pois estão n
 
 - client/: Pasta para o front-end.
 - server/: Pasta para o código do back-end.
+  
+## Docker
+Para facilitar o desenvolvimento e a implantação do projeto, você pode utilizar Docker para criar e gerenciar containers para o frontend e o backend.
+Estrutura do Docker
+- Dockerfile no diretório client/: Define a configuração para o container do frontend.
+- Dockerfile no diretório server/: Define a configuração para o container do backend.
+- docker-compose.yml na raiz do projeto: Orquestra os containers para o frontend e o backend, além do MongoDB.
 
 ## Backend
 
