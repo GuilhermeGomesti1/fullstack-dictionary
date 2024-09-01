@@ -127,9 +127,20 @@ Para rodar o frontend localmente, siga os passos abaixo:
   ```env
   REACT_APP_API_URL=http://localhost:5000
   ```
+  
+## Imagens e Vídeos do projeto em execução:
+
+
+
+https://github.com/user-attachments/assets/869e0747-5675-48e2-ba5c-5002a0a3773d
 
 https://github.com/user-attachments/assets/903764f6-11b0-4c2f-9d5a-01cd095d6624
 
+![desktop1](https://github.com/user-attachments/assets/168259cb-e93b-4e9e-8665-954a3664883f)
+![desktop-2](https://github.com/user-attachments/assets/b58343aa-138f-4fd7-b4fc-efd6ab4e7eab)
+![mobile1](https://github.com/user-attachments/assets/568b58a6-f0f3-457f-8dc2-874567379d88)
+![mobile2](https://github.com/user-attachments/assets/dd5fc227-de88-44b3-a35e-6708d8b47f29)
+![mobile3](https://github.com/user-attachments/assets/0cf109f3-8365-4888-bc16-e6ef7aac2653)
 
 ### Antes de começar
 
