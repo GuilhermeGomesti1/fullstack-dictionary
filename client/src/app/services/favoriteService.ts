@@ -21,3 +21,15 @@ export const removeFavorite = async (word: string, token: string) => {
     },
   });
 };
+
+export const addViewed = async (word: string, token: string) => {
+  await axios.post(
+    `${apiBaseUrl}/entries/en/${word}/viewed`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

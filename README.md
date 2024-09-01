@@ -53,6 +53,81 @@ O backend do projeto é construído com Express e MongoDB. Abaixo estão os deta
 
     - **`server.ts`**: Arquivo principal que configura o servidor Express e conecta ao MongoDB.
 
+- **`.env`**: Certifique-se de configurar suas variáveis de ambiente no arquivo `.env`.
+
+Como este é um teste, seguem as credenciais para acesso ao banco de dados, criadas especificamente para este projeto. Estou fornecendo essas informações para que você possa configurar o ambiente local com facilidade, caso seja necessário.
+
+      ```env
+
+MONGO_URI=mongodb+srv://guilhermegomesti1:9diPem91eOvPieb1@cluster0.sh4ko.mongodb.net/myDictionaryDB?retryWrites=true&w=majority
+FILE_URL=https://raw.githubusercontent.com/meetDeveloper/freeDictionaryAPI/master/meta/wordList/english.txt
+JWT_SECRET=e7d3bfa8c9a0a5d2a8eabfa7c4e8a16d9b99b934f10b8e9f2b7fc6ab54697b2e
+PORT=5000
+
+````
+
+## FrontEnd
+
+O frontend do projeto é construído com Next.js 14.2.3 e TailwindCSS. Abaixo estão os detalhes da estrutura do diretório, configuração e como iniciar o frontend.
+
+### Estrutura do Diretório
+
+**`client/`**: Pasta contendo o código do frontend.
+
+- **`public/`**: Contém arquivos estáticos e globais.
+- **`src/`**: Contém o código-fonte da aplicação.
+
+- **`app/`**: Componentes e páginas da aplicação.
+  - **`AlphabetMenu/`**: Componente para o menu de alfabeto.
+  - **`Footer/`**: Componente de rodapé.
+  - **`Icons/`**: Ícones usados na aplicação.
+  - **`Login/`**: Componente para o Login.
+  - **`MarkAsViewed/`**: Componente para marcar palavras como visualizadas.
+  - **`PhonectsPanel/`**: Componente para exibir painéis de fonética.
+  - **`Providers/`**: Provedores de contexto e configuração global.
+  - **`SearchBar/`**: Componente para a barra de pesquisa.
+  - **`ToggleFavorite/`**: Componente para alternar favoritos.
+  - **`WordModal/`**: Modal para exibir detalhes da palavra.
+  - **`dashboard/`**: Página do painel principal do dicionário e usuário.
+  - **`register/`**: Página para signUp.
+  - **`services/`**: Serviços para chamadas de API.
+    - `api.ts`: Configuração das chamadas à API.
+    - `authService.ts`: Serviços relacionados à autenticação.
+    - `favoriteService.ts`: Serviços para gerenciar favoritos.
+
+- **`.env`**: Arquivo de configuração de variáveis de ambiente.
+- **`.gitignore`**: Arquivo para ignorar arquivos e pastas no Git.
+- **`Dockerfile`**: Arquivo para construir a imagem Docker do frontend.
+- **`tsconfig.json`**: Configuração do TypeScript.
+- **`types.ts`**: Definições de tipos TypeScript personalizados.
+
+### Instalação e Execução
+
+Para rodar o frontend localmente, siga os passos abaixo:
+
+1. **Instalar as dependências**:
+
+ ```bash
+ cd client
+ npm install
+````
+
+2. **Executar o aplicativo**:
+
+   ```bash
+   npm run dev
+   ```
+
+   Isso iniciará o servidor de desenvolvimento em `http://localhost:3000`.
+
+### Configuração
+
+- **`.env`**: Certifique-se de configurar suas variáveis de ambiente no arquivo `.env`.
+
+  ```env
+  REACT_APP_API_URL=http://localhost:5000
+  ```
+
 ### Antes de começar
 
 - Prepare o projeto para ser disponibilizado no Github, copiando o conteúdo deste repositório para o seu (ou utilize o fork do projeto e aponte para o Github). Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);

@@ -64,6 +64,13 @@ export default function DashBoard() {
   });
 
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [selectedWord]);
+
+  useEffect(() => {
     const fetchUserData = async () => {
       try {
         const [favoritesData, viewedData] = await Promise.all([
@@ -76,37 +83,29 @@ export default function DashBoard() {
         console.error("Error fetching user data", error);
       }
     };
-
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-  }, [selectedWord]);
+  const handleToggleFavorite = (word: string) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(word)
+        ? prevFavorites.filter((w) => w !== word)
+        : [...prevFavorites, word]
+    );
+  };
 
-  useEffect(() => {
-    if (viewMode === "all") {
-      refetch();
-    }
-  }, [searchQuery, page, startLetter, viewMode, refetch]);
-
-  useEffect(() => {
-    if (viewMode === "favorites" || viewMode === "viewed") {
-      setPage(1);
-    }
-  }, [viewMode]);
+  const handleMarkAsViewed = (word: string) => {
+    setViewed((prevViewed) =>
+      prevViewed.includes(word) ? prevViewed : [...prevViewed, word]
+    );
+  };
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -137,6 +136,18 @@ export default function DashBoard() {
     setPreviousPage(page);
     setShowBackButton(true);
   };
+
+  useEffect(() => {
+    if (viewMode === "all") {
+      refetch();
+    }
+  }, [searchQuery, page, startLetter, viewMode, refetch]);
+
+  useEffect(() => {
+    if (viewMode === "favorites" || viewMode === "viewed") {
+      setPage(1);
+    }
+  }, [viewMode]);
 
   const currentPage =
     viewMode === "all"
@@ -169,19 +180,6 @@ export default function DashBoard() {
     }
   };
 
-  const handleToggleFavorite = (word: string) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.includes(word)
-        ? prevFavorites.filter((w) => w !== word)
-        : [...prevFavorites, word]
-    );
-  };
-
-  const handleMarkAsViewed = (word: string) => {
-    setViewed((prevViewed) =>
-      prevViewed.includes(word) ? prevViewed : [...prevViewed, word]
-    );
-  };
   const openModal = (word: string) => {
     setSelectedWord(word);
     setIsModalOpen(true);
