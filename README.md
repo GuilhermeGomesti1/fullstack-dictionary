@@ -127,6 +127,7 @@ Para rodar o frontend localmente, siga os passos abaixo:
   ```env
   REACT_APP_API_URL=http://localhost:5000
   ```
+[Assista ao vídeo](vid-desktop.mp4)
 
 ### Antes de começar
 
