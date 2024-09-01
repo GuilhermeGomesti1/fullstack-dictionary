@@ -138,9 +138,10 @@ https://github.com/user-attachments/assets/903764f6-11b0-4c2f-9d5a-01cd095d6624
 
 ![desktop1](https://github.com/user-attachments/assets/168259cb-e93b-4e9e-8665-954a3664883f)
 ![desktop-2](https://github.com/user-attachments/assets/b58343aa-138f-4fd7-b4fc-efd6ab4e7eab)
-![mobile1](https://github.com/user-attachments/assets/568b58a6-f0f3-457f-8dc2-874567379d88)
-![mobile2](https://github.com/user-attachments/assets/dd5fc227-de88-44b3-a35e-6708d8b47f29)
-![mobile3](https://github.com/user-attachments/assets/0cf109f3-8365-4888-bc16-e6ef7aac2653)
+![mobile1](https://github.com/user-attachments/assets/3204e227-5617-44a9-9321-d96f3ff82669)
+![mobile2](https://github.com/user-attachments/assets/5bf23883-14af-4fac-b10c-67f9f6688615)
+![mobile3](https://github.com/user-attachments/assets/921ff914-d613-4f42-92a8-6e5b4b51dff3)
+
 
 ### Antes de começar
 
