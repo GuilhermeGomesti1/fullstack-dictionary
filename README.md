@@ -57,14 +57,12 @@ O backend do projeto é construído com Express e MongoDB. Abaixo estão os deta
 
 Como este é um teste, seguem as credenciais para acesso ao banco de dados, criadas especificamente para este projeto. Estou fornecendo essas informações para que você possa configurar o ambiente local com facilidade, caso seja necessário.
 
-      ```env
-
+  ```env
 MONGO_URI=mongodb+srv://guilhermegomesti1:9diPem91eOvPieb1@cluster0.sh4ko.mongodb.net/myDictionaryDB?retryWrites=true&w=majority
 FILE_URL=https://raw.githubusercontent.com/meetDeveloper/freeDictionaryAPI/master/meta/wordList/english.txt
 JWT_SECRET=e7d3bfa8c9a0a5d2a8eabfa7c4e8a16d9b99b934f10b8e9f2b7fc6ab54697b2e
 PORT=5000
-
-````
+  ```
 
 ## FrontEnd
 
